@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  questionnaire_number: 1
+  question_number: 1
+  question: MyString
+  question_image: MyString
+  question_hint: MyString
+  correct_answer: MyString
+  answer_image: MyString
+  answer_additional_explanation: MyString
+  question_main_category: MyString
+  question_sub_category: MyString
+
+two:
+  questionnaire_number: 1
+  question_number: 1
+  question: MyString
+  question_image: MyString
+  question_hint: MyString
+  correct_answer: MyString
+  answer_image: MyString
+  answer_additional_explanation: MyString
+  question_main_category: MyString
+  question_sub_category: MyString
