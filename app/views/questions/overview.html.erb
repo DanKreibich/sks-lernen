@@ -1,0 +1,8 @@
+<ul>
+  <% @categories_and_number_of_questions_hash.each do |key, value| %>
+    <div>
+      <h3><%= key %></h3>
+      <p> Anzahl an Fragen: <%= value %></p>
+    </div>
+  <% end %>
+</ul>
