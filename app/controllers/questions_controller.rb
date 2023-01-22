@@ -1,4 +1,7 @@
 class QuestionsController < ApplicationController
+
+
+  # overview check which main categories there are and counts how many questions are included.
   def overview
     @questions = TheoryQuestion.all
     # creates array of the main question categories (https://stackoverflow.com/questions/8369812/rails-how-can-i-get-unique-values-from-column)
@@ -13,4 +16,26 @@ class QuestionsController < ApplicationController
     # transform array into a hash to display better in frontend (https://apidock.com/ruby/Enumerable/inject)
     @categories_and_number_of_questions_hash = Hash[*categories_and_number_of_questions_array.flatten]
   end
+
+  # training displays a random question of the chosen category
+  def training
+    @chosen_category = params[:chosen_category]
+    question_pool = TheoryQuestion.where(:question_main_category == @chosen_category).to_a
+    selected_question = question_pool.sample
+    @displayed_question = selected_question.question
+
+    # provide the following data so it can be passed to the answer screen
+    @question_id = selected_question.id
+
+  end
+
+  def answer
+    question = TheoryQuestion.find_by(id: params[:question_id])
+    @question_text = question.question
+    @question_answer = question.correct_answer
+    @chosen_category = params[:chosen_category] # needed to continue training in the same category
+  end
+
+
+
 end
