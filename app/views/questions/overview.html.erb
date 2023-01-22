@@ -3,6 +3,7 @@
     <div>
       <h3><%= key %></h3>
       <p> Anzahl an Fragen: <%= value %></p>
+      <%= link_to "Training beginnen", training_path(chosen_category: key) %>
     </div>
   <% end %>
 </ul>

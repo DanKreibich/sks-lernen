@@ -1,0 +1,13 @@
+<h1> <%= @chosen_category %> </h1>
+
+<p>Frage: <%= @question_text %> </p>
+<p><%= @question_answer %></p>
+<div>
+  <%= link_to "Falsch beantwortet. Nächste Frage", training_path(chosen_category: @chosen_category) %>
+</div>
+<div>
+  <%= link_to "Korrekt beantwortet. Nächste Frage", training_path(chosen_category: @chosen_category) %>
+</div>
+<div>
+  <%= link_to "Zurück zum Überblick", overview_path %>
+</div>

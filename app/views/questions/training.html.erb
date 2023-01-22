@@ -1,0 +1,8 @@
+<h1>Trainings-Seite für das Thema: <%= @chosen_category %></h1>
+<p><%= @displayed_question %></p>
+<div>
+  <%= link_to "Antwort anschauen", answer_path(chosen_category: @chosen_category, question_id: @question_id) %>
+</div>
+<div>
+  <%= link_to "Zurück zum Überblick", overview_path %>
+</div>
