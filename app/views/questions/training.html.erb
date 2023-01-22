@@ -1,5 +1,8 @@
 <h1>Trainings-Seite für das Thema: <%= @chosen_category %></h1>
 <p><%= @displayed_question %></p>
+<% if defined? @image_name != nil # checks if there is @image_name is available aka if there is an image available%>
+  <%= image_tag(@image_name) %>
+<% end %>
 <div>
   <%= link_to "Antwort anschauen", answer_path(chosen_category: @chosen_category, question_id: @question_id) %>
 </div>

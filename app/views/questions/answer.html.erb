@@ -1,7 +1,11 @@
 <h1> <%= @chosen_category %> </h1>
 
 <p>Frage: <%= @question_text %> </p>
+<% if defined? @image_name != nil # checks if there is @image_name is available aka if there is an image available%>
+  <%= image_tag(@image_name) %>
+<% end %>
 <p><%= @question_answer %></p>
+
 <div>
   <%= link_to "Falsch beantwortet. Nächste Frage", training_path(chosen_category: @chosen_category) %>
 </div>

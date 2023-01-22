@@ -17,16 +17,25 @@ class QuestionsController < ApplicationController
     @categories_and_number_of_questions_hash = Hash[*categories_and_number_of_questions_array.flatten]
   end
 
+  # returns the @image_name so it can be displayed in the frontend
+  def check_if_image_exists(chosen_category, question_number)
+    image_name = "#{chosen_category.downcase.tr(" ", "_")}_#{question_number}.jpg" #converts to lowercase and replaces spaces with underscores
+    if File.file?("#{Rails.root}/app/assets/images/#{image_name}")
+      @image_name = image_name #if image exists make it available for frontend
+    end
+  end
+
   # training displays a random question of the chosen category
   def training
     @chosen_category = params[:chosen_category]
-    question_pool = TheoryQuestion.where(:question_main_category == @chosen_category).to_a
+
+    question_pool = TheoryQuestion.where(question_main_category: @chosen_category).to_a # selects only questions from the chosen category
     selected_question = question_pool.sample
     @displayed_question = selected_question.question
+    check_if_image_exists(@chosen_category, selected_question.question_number)
 
     # provide the following data so it can be passed to the answer screen
     @question_id = selected_question.id
-
   end
 
   def answer
@@ -34,8 +43,6 @@ class QuestionsController < ApplicationController
     @question_text = question.question
     @question_answer = question.correct_answer
     @chosen_category = params[:chosen_category] # needed to continue training in the same category
+    check_if_image_exists(@chosen_category, question.question_number)
   end
-
-
-
 end
