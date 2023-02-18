@@ -3,6 +3,7 @@ require 'csv'
 # Rules to create the CSV:
 # 1. The CSV should be uploaded without any title row
 # 2. The should be no double quotes "" and semi-colons ; in the data base entries
+# 3. HTML tags need to be included, e.g. Line breaks are entered like <br/>
 # 3. If new columns are added "move_csv_rows_into_theory_questions_db" needs to be adjusted
 
 class CsvController < ApplicationController

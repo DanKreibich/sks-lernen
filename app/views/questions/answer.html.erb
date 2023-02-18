@@ -1,16 +1,19 @@
 <h1> <%= @chosen_category %> </h1>
+<p>Korrekt beantwortet: <%= @counter_correctly_answered %> </p>
+<p>Falsch beantwortet: <%= @counter_incorrectly_answered %> </p>
 
 <p>Frage: <%= @question_text %> </p>
 <% if defined? @image_name != nil # checks if there is @image_name is available aka if there is an image available%>
   <%= image_tag(@image_name) %>
 <% end %>
-<p><%= @question_answer %></p>
+<!-- .html_safe allows to save html tags in texts and they will be considered when rendered: https://stackoverflow.com/questions/32016278/line-breaks-in-a-seed-data-string -->
+<p><%= @question_answer.html_safe %></p>
 
 <div>
-  <%= link_to "Falsch beantwortet. Nächste Frage", training_path(chosen_category: @chosen_category) %>
+  <%= link_to "Falsch beantwortet. Nächste Frage", training_path(chosen_category: @chosen_category, question_id: @question.id, correctly_answered: false) %>
 </div>
 <div>
-  <%= link_to "Korrekt beantwortet. Nächste Frage", training_path(chosen_category: @chosen_category) %>
+  <%= link_to "Korrekt beantwortet. Nächste Frage", training_path(chosen_category: @chosen_category, question_id: @question.id, correctly_answered: true) %>
 </div>
 <div>
   <%= link_to "Zurück zum Überblick", overview_path %>

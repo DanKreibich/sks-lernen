@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  theory_question: one
+  counter_correctly_answered: 1
+  counter_incorrectly_answered: 1
+
+two:
+  user: two
+  theory_question: two
+  counter_correctly_answered: 1
+  counter_incorrectly_answered: 1
