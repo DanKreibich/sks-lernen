@@ -1,5 +1,8 @@
 <h1>Trainings-Seite für das Thema: <%= @chosen_category %></h1>
-<p><%= @displayed_question %></p>
+<p><%= @displayed_question.html_safe %></p>
+<!-- .html_safe allows to save html tags in texts and they will be considered when rendered: https://stackoverflow.com/questions/32016278/line-breaks-in-a-seed-data-string -->
+<p>Korrekt beantwortet: <%= @counter_correctly_answered %> </p>
+<p>Falsch beantwortet: <%= @counter_incorrectly_answered %> </p>
 <% if defined? @image_name != nil # checks if there is @image_name is available aka if there is an image available%>
   <%= image_tag(@image_name) %>
 <% end %>

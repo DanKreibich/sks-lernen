@@ -1,9 +1,11 @@
 <ul>
   <% @categories_and_number_of_questions_hash.each do |key, value| %>
+  <% key_to_be_passed = key %>
     <div>
       <h3><%= key %></h3>
       <p> Anzahl an Fragen: <%= value %></p>
       <%= link_to "Training beginnen", training_path(chosen_category: key) %>
+      <p>Bisher 3x korrekt beantwortete Fragen: <%= @correct_answers_per_category_hash[key_to_be_passed] %>  </p>
     </div>
   <% end %>
 </ul>
