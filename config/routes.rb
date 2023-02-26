@@ -2,8 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  #homepage
+  # Homepage
   root to: "pages#home"
+
+  # General pages
+
+  get "/imprint", to: "pages#imprint", as: "imprint"
 
   # Everythin related to "Question Trainer"
   get "/overview", to: "questions#overview", as: "overview"
@@ -14,4 +18,6 @@ Rails.application.routes.draw do
   get "csv/new", to: "csv#new"
   post 'csv/new', to: 'csv#create'
   get 'csv/upload_success_page', to: 'csv#upload_success_page'
+
+
 end

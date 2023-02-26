@@ -1,11 +1,41 @@
-<ul>
-  <% @categories_and_number_of_questions_hash.each do |key, value| %>
-  <% key_to_be_passed = key %>
-    <div>
-      <h3><%= key %></h3>
-      <p> Anzahl an Fragen: <%= value %></p>
-      <%= link_to "Training beginnen", training_path(chosen_category: key) %>
-      <p>Bisher 3x korrekt beantwortete Fragen: <%= @correct_answers_per_category_hash[key_to_be_passed] %>  </p>
-    </div>
-  <% end %>
-</ul>
+<div class="section ">
+   <div class="container ">
+      <div class="row mt-5 position-relative">
+         <div class="col-md-12">
+            <div class="train">
+
+
+
+
+              <% @categories_and_number_of_questions_hash.each do |key, value| %>
+                <% key_to_be_passed = key %>
+
+                <div class="row wit-bx mt-2 mb-4 mx-2 p-3">
+                    <div class="col-md-4">
+                       <div class="row ">
+                          <div class="col-3 ibx bg-pink">
+                            <%= image_tag "quiz_icon.png"%>
+                          </div>
+                          <div class="col-8 txtbx">
+                             <h4><strong><%= key %></strong><br>
+                                <%= value %> Fragen
+                             </h4>
+                          </div>
+                       </div>
+                    </div>
+                    <div class="col-md-4">
+                       <h3 class="thead"><strong>3x Korrekt beantwortet</strong>
+                          <br><%= @correct_answers_per_category_hash[key_to_be_passed] %>
+                       </h3>
+                    </div>
+                    <div class="col-md-4 mt-4 text-lg-end text-center">
+                       <%= link_to "Üben", training_path(chosen_category: key),class: "btn btn-outline-primary  uben" %>
+                    </div>
+                 </div>
+              <% end %>
+
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

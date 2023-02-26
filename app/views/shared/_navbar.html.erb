@@ -1,3 +1,5 @@
+
+<!--
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to "#", class: "navbar-brand" do %>
@@ -17,13 +19,9 @@
           <li class="nav-item">
             <%= link_to "Messages", "#", class: "nav-link" %>
           </li>
-          <li class="nav-item dropdown">
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Action", "#", class: "dropdown-item" %>
               <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete %>
         <% else %>
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
@@ -32,4 +30,47 @@
       </ul>
     </div>
   </div>
+</div>
+-->
+
+<div class="container">
+  <header class="mb-5">
+    <div class="row mt-4 mb-5">
+
+        <div class="col-md-6 col-8">
+          <div class="logo">
+            <a href="/"><%= image_tag "kompass.png" %>SKS <strong>LERNEN</strong></a>
+          </div>
+        </div>
+
+
+        <div class="col-md-6 col-4">
+          <a href="#" class="float-end p-2 menuIcon"  onclick="showMenu();"><img src="img/menu.png"></a>
+          <div class="overlay" onclick="hideMenu();"></div>
+          <ul class="nav float-end">
+            <% if user_signed_in? %>
+              <li class="nav-item active">
+                <%= link_to "Accounts", "#", class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item", class: "nav-link"  %>
+              </li>
+              <li class="nav-item dropdown">
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                  <%= link_to "Action", "#", class: "dropdown-item" %>
+                  <%= link_to "Another action", "#", class: "dropdown-item" %>
+                  <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+                </div>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+              </li>
+          <% end %>
+        </ul>
+
+
+        </div>
+    </div>
+  </header>
 </div>
