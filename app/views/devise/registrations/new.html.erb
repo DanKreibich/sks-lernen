@@ -1,51 +1,66 @@
-<h2>Sign up</h2>
+<div class="section pt-0 ">
+   <div class="container ">
+      <div class="row justify-content-center">
+         <div class="col-md-8">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name),
-  data: {turbo: false}) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autocomplete: "Vorname" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autocomplete: "Nachname" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :age %><br />
-    <%= f.text_field :age, autocomplete: "Alter" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :country %><br />
-    <%= f.text_field :country, autocomplete: "Land" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {:class => 'form'}) do |f| %>
+            <div class="form-icon text-center">
+              <%= image_tag "kompass.png" %>
+            </div>
+            <h2 class="form-heading fw-bold text-center mb-5">Registrieren</h2>
 
 
-<%= render "devise/shared/links" %>
+            <div class="form-floating mb-4">
+              <%= f.text_field :first_name, class: "form-control", placeholder: 'Vorname' %>
+              <%= f.label "Vorname" %>
+            </div>
+
+            <div class="form-floating mb-4">
+              <%= f.text_field :last_name, class: "form-control", placeholder: 'Nachname' %>
+              <%= f.label "Nachname" %>
+            </div>
+
+            <div class="row ">
+              <div class="form-floating col-md-6 mb-4">
+                <div class="form-select">
+                  <%= f.select :age,((12..99).to_a) %>
+                  <%= f.label "Alter"%>
+                </div>
+              </div>
+              <div class="form-floating col-md-6 mb-4">
+                <div class="form-select">
+                  <%= f.select :country,["DE", "AT", "CH", "Andere"] %>
+                  <%= f.label "Land" %>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-floating mb-4">
+              <%= f.email_field :email, class: "form-control", placeholder: "Email"%>
+              <%= f.label "Email" %>
+              <%= image_tag "at.png", class: "inp-icon" %>
+            </div>
+
+            <div class = "form-floating">
+              <%= f.password_field :password, class: "form-control", placeholder: "Passwort"%>
+              <%= f.label "Passwort" %>
+              <%= image_tag "lock.png", class: "inp-icon" %>
+            </div>
+            <br>
+            <div class = "form-floating">
+              <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Passwort bestätigen"%>
+              <%= f.label "Passwort bestätigen" %>
+              <%= image_tag "lock.png", class: "inp-icon" %>
+              <br>
+            </div>
+
+            <div class="d-grid gap-2">
+                <%= f.submit "Registrieren", class: "btn btn-primary btn-form-theme" %>
+            </div>
+
+          <% end %>
+
+         </div>
+      </div>
+   </div>
+</div>

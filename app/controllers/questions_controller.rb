@@ -101,6 +101,7 @@ class QuestionsController < ApplicationController
 
     # provide the following data so it can be passed to the answer screen
     @question_id = selected_question.id
+    @sub_category = TheoryQuestion.where(id: @question_id)[0].question_sub_category # to display the sub category in the front end
   end
 
   def answer
@@ -108,6 +109,7 @@ class QuestionsController < ApplicationController
     @question_text = @question.question
     @question_answer = @question.correct_answer
     @chosen_category = params[:chosen_category] # needed to continue training in the same category
+    @sub_category = @question.question_sub_category # to display the sub category in the front end
     check_if_image_exists(@chosen_category, @question.question_number)
     show_learning_log_of_specific_question(current_user.id, @question.id)
   end

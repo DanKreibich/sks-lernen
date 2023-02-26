@@ -1,20 +1,46 @@
-<h1> <%= @chosen_category %> </h1>
-<p>Korrekt beantwortet: <%= @counter_correctly_answered %> </p>
-<p>Falsch beantwortet: <%= @counter_incorrectly_answered %> </p>
+<div class="section ">
+   <div class="container ">
+      <div class="row mt-5 position-relative">
+         <div class="col-md-12">
+            <div class="que">
+               <div class="row wit-bx mt-2 mb-4 mx-2 ps-2 ps-lg-5 py-5 pe-3">
+                  <div class="col-md-9 blue_area mb-0 mb-lg-5">
+                    <h1 class="heading"><strong><%= @chosen_category %></strong></h1>
+                    <p><%= @sub_category %></p>
+                  </div>
+                  <div class="col-md-3 mb-0 mb-lg-5">
+                    <div class="row qbx m-0 float-md-end float-start">
+                      <div class="col-6">
+                        <span class="green_txt"><%= @counter_correctly_answered %>x korrekt</span>
+                      </div>
+                      <div class="col-6">
+                        <span class=""><%= @counter_incorrectly_answered %>x falsch</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                  <div class="que_area">
+                    <h6> <span class="fw-bold">Antwort </span>| Frage nochmal anschauen?</h6>
+                      <p><%= @question_answer.html_safe %></p>
+                  </div>
+                  <div class="img-q float-end text-center">
+                    <% if defined? @image_name != nil # checks if there is @image_name is available aka if there is an image available%>
+                      <%= image_tag(@image_name) %>
+                    <% end %>
+                  </div>
+                  </div>
+                  <div class="col-md-12 my-3 text-lg-end text-center">
+                    <%= link_to "korrekt beantwortet", training_path(chosen_category: @chosen_category, question_id: @question.id, correctly_answered: true), class: "btn btn-outline-success ansbtn" %>
+                    <%= link_to "falsch beantwortet", training_path(chosen_category: @chosen_category, question_id: @question.id, correctly_answered: false), class: "btn btn-outline-danger ansbtn" %>
+                  </div>
+               </div>
 
-<p>Frage: <%= @question_text %> </p>
-<% if defined? @image_name != nil # checks if there is @image_name is available aka if there is an image available%>
-  <%= image_tag(@image_name) %>
-<% end %>
-<!-- .html_safe allows to save html tags in texts and they will be considered when rendered: https://stackoverflow.com/questions/32016278/line-breaks-in-a-seed-data-string -->
-<p><%= @question_answer.html_safe %></p>
+            <div class="col-md-12 text-lg-start text-center">
+              <%= link_to "Zurück zum Überblick", overview_path, class: "btn btn-link" %>
+            </div>
 
-<div>
-  <%= link_to "Falsch beantwortet. Nächste Frage", training_path(chosen_category: @chosen_category, question_id: @question.id, correctly_answered: false) %>
-</div>
-<div>
-  <%= link_to "Korrekt beantwortet. Nächste Frage", training_path(chosen_category: @chosen_category, question_id: @question.id, correctly_answered: true) %>
-</div>
-<div>
-  <%= link_to "Zurück zum Überblick", overview_path %>
+            </div>
+         </div>
+      </div>
+   </div>
 </div>

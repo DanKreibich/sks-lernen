@@ -1,26 +1,43 @@
-<h2>Log in</h2>
+<div class="section pt-0 ">
+   <div class="container ">
+      <div class="row justify-content-center">
+         <div class="col-md-8">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {:class => 'form'}) do |f| %>
+            <div class="form-icon text-center">
+              <%= image_tag "kompass.png" %>
+            </div>
+            <h2 class="form-heading fw-bold text-center mb-5">Moin, moin!</h2>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+            <div class="form-floating mb-4">
+              <%= f.email_field :email, class: "form-control", id: "ui", placeholder: "example@email.de"%>
+              <%= f.label :email %>
+              <%= image_tag "at.png", class: "inp-icon" %>
+            </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
+            <div class = "form-floating">
+              <%= f.password_field :password, class: "form-control", id: "ui", placeholder: "Passwort"%>
+              <%= f.label :password %>
+              <%= image_tag "lock.png", class: "inp-icon" %>
+            </div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+            <!-- 2 column grid layout for inline styling -->
+            <div class="row mb-5 mt-3">
+               <div class="col text-end">
+                  <!-- Simple link -->
+                  <%= link_to "Passwort vergessen?", new_password_path(resource_name), class: "forgot" %>
+               </div>
+            </div>
 
-<%= render "devise/shared/links" %>
+            <div class="d-grid gap-2">
+                <%= f.submit "Log in", class: "btn btn-primary btn-form-theme" %>
+            </div>
+
+            <div class="row mt-3">
+              <div class="col-12 text-center forgot">Noch keinen Account? <%= link_to "Hier registrieren.", new_registration_path(resource_name) %></div>
+            </div>
+          <% end %>
+         </div>
+      </div>
+   </div>
+</div>
