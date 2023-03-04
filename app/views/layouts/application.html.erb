@@ -10,16 +10,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
     <%= stylesheet_link_tag "application", :media => "all", :"data-turbo-track" => "reload" %>
-    <title>Sks LERNEN</title>
+    <title>SKS.school</title>
   </head>
 
   <%= render 'shared/navbar' %>
 
 
   <body>
-    <div class="wrapper">
+    <% unless notice.nil? %>
+    <div class="row justify-content-center">
+      <div class="col-md-8 form">
+        <p class="notice-message"><%= notice %></p>
+      </div>
+    </div>
+    <% end %>
       <%= yield %>
-      <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     </div>
   </body>

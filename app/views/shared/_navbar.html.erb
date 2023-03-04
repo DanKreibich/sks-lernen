@@ -39,21 +39,21 @@
 
         <div class="col-md-6 col-8">
           <div class="logo">
-            <a href="/"><%= image_tag "kompass.png" %>SKS <strong>LERNEN</strong></a>
+            <a href="/"><%= image_tag "kompass.png" %><strong>SKS.</strong>school</a>
           </div>
         </div>
 
 
         <div class="col-md-6 col-4">
-          <a href="#" class="float-end p-2 menuIcon"  onclick="showMenu();"><img src="img/menu.png"></a>
+          <a href="#" class="float-end p-2 menuIcon"  onclick="showMenu();"><%= image_tag "menu.png" %></a>
           <div class="overlay" onclick="hideMenu();"></div>
           <ul class="nav float-end">
             <% if user_signed_in? %>
               <li class="nav-item active">
-                <%= link_to "Accounts", "#", class: "nav-link" %>
+                <%= link_to "Überblick", overview_path, class: "nav-link" %>
               </li>
               <li class="nav-item">
-                <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item", class: "nav-link"  %>
+                <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item nav-link button-overwrite" %>
               </li>
               <li class="nav-item dropdown">
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

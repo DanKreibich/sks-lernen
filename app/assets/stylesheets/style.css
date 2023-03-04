@@ -3,6 +3,9 @@ body {
     font-family: 'Raleway', sans-serif;
     background: url("/assets/background.png");
     background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 /*.wrapper{
   position:relative;
@@ -48,6 +51,22 @@ select option {
     text-decoration: none;
     font-size: 18px;
 }
+
+.nav a:hover {
+    color: #00000080;
+}
+
+.nav button {
+    color: #E26964;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.nav button:hover {
+  background: rgba(0,0,0,0);
+  color: #00000080;
+}
+
 .que {
     padding: 40px;
     background: rgba(255, 255, 255, 0.99);
@@ -165,7 +184,7 @@ footer {
     background: rgba(226, 105, 100, 0.3);
     padding: 20px;
     width: 100%;
-    margin-top: 80px;
+    margin-top: auto;
 }
 
 h1.main_heading {
@@ -397,4 +416,18 @@ form.form {
 .rot .col-6 {
     padding-right: 0 !important;
 }
+}
+
+.notice-message{
+  color: #E26964;
+  text-align: center;
+  padding: 25px 50px 25px 50px;
+  border-color:  #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  background:  #ffffff;
+}
+
+.overflow-ok{
+  overflow: visible;
 }
