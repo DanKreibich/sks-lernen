@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   # General pages
-
   get "/imprint", to: "pages#imprint", as: "imprint"
+  get "/about", to: "pages#about", as: "about"
+
 
   # Everythin related to "Question Trainer"
   get "/overview", to: "questions#overview", as: "overview"
