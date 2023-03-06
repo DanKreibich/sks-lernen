@@ -82,6 +82,11 @@ Rails.application.configure do
   # require "syslog/logger"
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new "app-name")
 
+
+  # added to load background image, following description from here: https://wajeeh-ahsan.medium.com/rails-background-image-not-showing-up-on-heroku-c99b897da26d
+  config.serve_static_assets = true
+  config.assets.compile = true
+
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter

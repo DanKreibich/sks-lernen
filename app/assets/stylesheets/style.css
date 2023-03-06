@@ -6,6 +6,8 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    max-width: 100vw;
+    overflow:  hidden;
 }
 /*.wrapper{
   position:relative;
@@ -175,10 +177,9 @@ border-radius: 10px;
     color: #E26964;
 }
 .btn-theme{
-
-border: 2px solid #E26964;
-border-radius: 10px;
-background: #E26964;
+  border: 2px solid #E26964;
+  border-radius: 10px;
+  background: #E26964;
 }
 footer {
     background: rgba(226, 105, 100, 0.3);
@@ -268,8 +269,11 @@ img.inp-icon {
   margin-bottom:100px;
 }
 @media only screen and (max-width: 767px) {
-  footer {
-    margin-top: 30px;
+footer {
+    background: rgba(226, 105, 100, 0.3);
+    padding: 20px;
+    width: 100%;
+    margin-top: auto;
 }
 .qbx {
     width: 100%;
@@ -394,6 +398,15 @@ form.form {
     font-size: 16px;
 }
 
+.nav button {
+    color: #ffffff;
+}
+
+.mobile-button-padding {
+  position:  relative;
+  margin-top: 50px;
+}
+
 }
 @media only screen and (max-width: 510px) {
 .ansbtn {
@@ -416,6 +429,19 @@ form.form {
 .rot .col-6 {
     padding-right: 0 !important;
 }
+.mobile-button-padding {
+  position:  relative;
+  margin-top: 50px;
+}
+footer {
+    background: rgba(226, 105, 100, 0.3);
+    padding: 20px;
+    width: 100%;
+    margin-top: auto;
+}
+.nav button {
+    color: #ffffff;
+}
 }
 
 .notice-message{
@@ -426,8 +452,4 @@ form.form {
   border: 2px solid #ffffff;
   border-radius: 10px;
   background:  #ffffff;
-}
-
-.overflow-ok{
-  overflow: visible;
 }
