@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get "/overview", to: "questions#overview", as: "overview"
   get "/training", to: "questions#training", as: "training"
   get "/answer", to: "questions#answer", as: "answer"
+  get "/questions/:id", to: "questions#show", as: "show"
 
   # Routes for everything related to uploading CSV data
   get "csv/new", to: "csv#new"
