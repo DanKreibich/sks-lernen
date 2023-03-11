@@ -20,7 +20,7 @@ class QuestionsController < ApplicationController
 
         if LearningLog.where(user_id: current_user.id, theory_question_id: question_id).exists?
           correct_answers_in_learning_log = LearningLog.where(user_id: current_user.id, theory_question_id: question_id)[0].counter_correctly_answered
-          if correct_answers_in_learning_log >= 3
+          if correct_answers_in_learning_log >= 1
             counter_correct_answers_per_category +=1
           end
         end
@@ -102,6 +102,20 @@ class QuestionsController < ApplicationController
     # provide the following data so it can be passed to the answer screen
     @question_id = selected_question.id
     @sub_category = TheoryQuestion.where(id: @question_id)[0].question_sub_category # to display the sub category in the front end
+  end
+
+  def show
+    question = TheoryQuestion.where(id: params[:id].to_i)[0] # needed to identify remaining question parameters to show them again
+    @chosen_category = question.question_main_category
+    @displayed_question = question.question
+    check_if_image_exists(@chosen_category, question.question_number)
+
+    # show the learning log counters in the frontend
+    show_learning_log_of_specific_question(current_user.id, question.id)
+
+    # provide the following data so it can be passed to the answer screen
+    @question_id = question.id
+    @sub_category = question.question_sub_category # to display the sub category in the front end
   end
 
   def answer

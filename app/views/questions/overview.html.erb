@@ -17,14 +17,12 @@
                             <%= image_tag "quiz_icon.png"%>
                           </div>
                           <div class="col-8 txtbx">
-                             <h4><strong><%= key %></strong><br>
-                                <%= value %> Fragen
-                             </h4>
+                             <h4><strong><%= key %></strong><br><%= value %> Fragen</h4>
                           </div>
                        </div>
                     </div>
                     <div class="col-md-4">
-                       <h3 class="thead"><strong>3x Korrekt beantwortet</strong>
+                       <h3 class="thead"><strong>Korrekt beantwortete Fragen:</strong>
                           <br><%= @correct_answers_per_category_hash[key_to_be_passed] %>
                        </h3>
                     </div>
